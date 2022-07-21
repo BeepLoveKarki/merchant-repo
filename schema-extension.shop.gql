@@ -1,0 +1,11 @@
+type MerchantInfo {
+    companyName: String!
+    companyAddress: String
+    companyDescription: String
+    customerContactEmail: String
+    customerContactPhone: String
+}
+
+extend type Product {
+    merchant: MerchantInfo
+}

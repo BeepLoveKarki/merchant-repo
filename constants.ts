@@ -1,0 +1,27 @@
+import { Permission } from '@vendure/core';
+
+export const MERCHANT_PERMISSIONS = [
+    Permission.CreateProduct,
+    Permission.ReadProduct,
+    Permission.DeleteProduct,
+    Permission.UpdateProduct,
+    Permission.ReadFacet,
+    Permission.CreateFacet,
+    Permission.UpdateFacet,
+    Permission.DeleteFacet,
+    Permission.CreateCollection,
+    Permission.ReadCollection,
+    Permission.UpdateCollection,
+    Permission.DeleteCollection,
+    Permission.ReadAsset,
+    Permission.CreateAsset,
+    Permission.UpdateAsset,
+    Permission.DeleteAsset,
+    Permission.ReadOrder,
+    Permission.CreateOrder,
+    Permission.UpdateOrder,
+    Permission.DeleteOrder,
+    Permission.ReadCustomer,
+    Permission.ReadTaxCategory,
+    Permission.ReadTaxRate,
+];

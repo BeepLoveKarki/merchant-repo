@@ -1,0 +1,79 @@
+input CreateMerchantInput {
+    adminFirstName: String!
+    adminLastName: String!
+    adminEmail: String!
+    adminPassword: String!
+    adminPhoneNumber: String
+    companyCode: String!
+    companyName: String!
+    companyAddress: String
+    companyDescription: String
+    customerContactEmail: String
+    customerContactPhone: String
+    enabled: Boolean
+    document: Upload
+}
+
+input UpdateMerchantInput {
+    id: ID!
+    adminFirstName: String
+    adminLastName: String
+    adminEmail: String
+    adminPassword: String
+    adminPhoneNumber: String
+    companyCode: String
+    companyName: String
+    companyAddress: String
+    companyDescription: String
+    customerContactEmail: String
+    customerContactPhone: String
+    enabled: Boolean
+    document: Upload
+}
+
+input MerchantOrderInput {
+    channelId: String!
+}
+
+type Merchant implements Node {
+    id: ID!
+    uuid: String
+    createdAt: DateTime!
+    updatedAt: DateTime!
+    channel: Channel!
+    role: Role!
+    administrator: Administrator!
+    companyCode: String!
+    companyName: String!
+    companyAddress: String
+    companyDescription: String
+    customerContactEmail: String
+    customerContactPhone: String
+    adminPhoneNumber: String
+    qrAssetId: Int
+    qrAssetSource: String
+    documentAssetId: Int
+    documentAssetSource: String
+    enabled: Boolean!
+}
+
+type MerchantList implements PaginatedList {
+    totalItems: Int!
+    items: [Merchant!]!
+}
+
+# Auto-generated at runtime
+input MerchantListOptions
+
+extend type Query {
+    merchant(id: ID!): Merchant
+    merchants(options: MerchantListOptions): MerchantList!
+    merchantByUuid(uuid: String!): Merchant
+    merchantByChannelId(id: ID!): Merchant
+}
+
+extend type Mutation {
+    deleteMerchant(id: ID!): DeletionResponse!
+    createMerchant(input: CreateMerchantInput!): Merchant!
+    updateMerchant(input: UpdateMerchantInput!): Merchant!
+}
